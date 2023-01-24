@@ -1,9 +1,13 @@
-package homeWorksGit.polymorphism.task2;
+package homeWorksGit.polymorphism.task2withBigdecimal;
 
-public class VaTaxType extends TaxType{
-    @Override
-    public double calculateTaxFor(double amount) {
-        amount = amount * 0.18;
+import java.math.BigDecimal;
+
+public class VaTaxType extends TaxType {
+    public VaTaxType() {
+    }
+
+    public BigDecimal calculateTaxFor(BigDecimal amount) {
+        amount = amount.multiply(BigDecimal.valueOf(0.18));
         return amount;
     }
 }

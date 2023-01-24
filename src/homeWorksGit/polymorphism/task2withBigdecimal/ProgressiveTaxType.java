@@ -1,12 +1,16 @@
-package homeWorksGit.polymorphism.task2;
+package homeWorksGit.polymorphism.task2withBigdecimal;
 
-public class ProgressiveTaxType extends TaxType{
-    @Override
-    public double calculateTaxFor(double amount) {
-        if(amount >= 100000){
-            amount = amount * 0.15;
-        }else {
-            amount = amount * 0.1;
+import java.math.BigDecimal;
+
+public class ProgressiveTaxType extends TaxType {
+    public ProgressiveTaxType() {
+    }
+
+    public BigDecimal calculateTaxFor(BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.valueOf(99999L)) > 0) {
+            amount = amount.multiply(BigDecimal.valueOf(0.15));
+        } else {
+            amount = amount.multiply(BigDecimal.valueOf(0.1));
         }
         return amount;
     }
